@@ -1,0 +1,47 @@
+% Cover letter, same look as resume.tex. Built by: python TOOLS/make_cover.py <job folder> <cover.json>
+% (make_cover.py writes the header from config/kit.json and the four paragraphs from cover.json, then builds the PDF).
+% Four paragraphs, 150 to 250 words: 1 a real challenge story from EXPERIENCE_BANK.md that matches the posting,
+% 2 the fit in their words, 3 one specific, checkable thing about this employer, 4 availability + thanks.
+% Never: "I am writing to", "excited", "passionate", "great fit", lists of three, em or en dashes, private life.
+\documentclass[letterpaper,11pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+\setmainfont{lmroman10}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic,
+  BoldItalicFont=*-bolditalic, SmallCapsFont=lmromancaps10-regular, Ligatures=NoCommon]
+\pagestyle{empty}
+\addtolength{\oddsidemargin}{-0.25in}
+\addtolength{\textwidth}{0.5in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{9pt}
+\urlstyle{same}
+
+\begin{document}
+
+\begin{center}
+  {\Huge \bfseries First Last} \ \vspace{2pt}
+  \small City, ON $|$ \href{mailto:you.jobs@gmail.com}{you.jobs@gmail.com} $|$ +1 416-555-0100
+\end{center}
+\vspace{4pt}\hrule\vspace{10pt}
+
+Month D, YYYY
+
+Hiring Team \
+Company, City, ON
+
+\textbf{Re: Exact Job Title}
+
+Dear Hiring Team,
+
+Paragraph 1: a real problem you solved, told in three or four plain sentences.
+
+Paragraph 2: why that matches what this posting asks for, in its own words.
+
+Paragraph 3: one specific, checkable thing about this employer and why it draws you.
+
+Paragraph 4: when you can start, and thanks.
+
+Sincerely, \
+First Last
+
+\end{document}

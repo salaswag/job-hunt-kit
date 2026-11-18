@@ -1,0 +1,25 @@
+{
+  "_readme": "Your settings. The setup copies this file to config/kit.json and fills it in from your answers. kit.json is never pushed to git. Passwords and the Notion token are NOT here: they live in %USERPROFILE%\\.job_hunt\\credentials.env.",
+  "name": { "first": "First", "last": "Last", "full": "First Last", "file_prefix": "First_Last" },
+  "contact": {
+    "city_line": "Toronto, ON",
+    "email": "you.jobs@gmail.com",
+    "phone": "+1 416-555-0100",
+    "linkedin_url": "https://www.linkedin.com/in/your-handle/",
+    "linkedin_label": "linkedin.com/in/your-handle"
+  },
+  "job_inbox_url": "https://mail.google.com/mail/u/0/",
+  "chrome_profile": "Default",
+  "languages": ["English"],
+  "tracks": ["main", "nearby"],
+  "caps": { "main": 5, "nearby": 10 },
+  "per_site_cap": 10,
+  "followup_days": { "default": 10, "nearby": 6 },
+  "linkedin_outreach": false,
+  "resume_banned": [],
+  "no_overnight_shifts": false,
+  "games": [],
+  "schedule": { "run_times": ["09:00", "18:00"], "followup_time": "09:30", "sweep_time": "07:45", "career_ops_time": "" },
+  "models": { "run": ["sonnet", "medium"], "followup": ["sonnet", "low"], "sweep": ["haiku", ""] },
+  "notion": { "page_id": "", "page_url": "", "needs_you_block": "", "applications_ds": "", "judgment_ds": "", "owner_user_id": "" }
+}

@@ -1,0 +1,669 @@
+[
+{
+"q": "i hereby (certify|acknowledge|authori[sz]e)|by selecting .{0,3}yes|by (checking|clicking|submitting)|^acknowledg|terms and conditions|i (have read|understand)( and|,)? ?(agree|accept|consent)",
+"a": [
+"Yes",
+"I agree",
+"Agree",
+"I acknowledge",
+"Acknowledge",
+"I understand",
+"I accept",
+"Accept",
+"I consent"
+]
+},
+{
+"q": "verification of (both )?your identity and (your )?authori[sz]ation to work|submit (proof|verification) of.{0,40}(identity|eligibility|authori[sz]ation)",
+"a": [
+"Yes"
+],
+"force": true,
+"note": "2026-11-13 Citi"
+},
+{
+"q": "senior government official|politically exposed|government official.{0,60}(position|relative|referral)",
+"a": [
+"No"
+],
+"force": true,
+"note": "2026-11-13 Citi: 'postal employees' in the SGO question hit the postal-code row"
+},
+{
+"q": "covered relationships|relatives?.{0,80}(currently )?(working|work|employed) (for|at|with)",
+"a": [
+"No"
+],
+"note": "2026-11-13 Citi"
+},
+{
+"q": "you acknowledge and understand|acknowledge and understand that you",
+"a": [
+"Yes",
+"I acknowledge",
+"Acknowledge",
+"I agree"
+],
+"note": "2026-11-13 TJX: 'proof of eligibility ... prior to your start date' was caught by the start-date row"
+},
+{
+"q": "scheduling restrictions|restrictions (on|to) (your )?(availability|schedule)",
+"a": "None",
+"force": true
+},
+{
+"q": "^first name|given name",
+"a": "{{first_name}}",
+"force": true
+},
+{
+"q": "^middle name",
+"a": "",
+"force": true
+},
+{
+"q": "^last name|family name|surname",
+"a": "{{last_name}}",
+"force": true
+},
+{
+"q": "^(full )?name$|^your name|signature",
+"a": "{{full_name}}"
+},
+{
+"q": "address line 1|address \\(line 1\\)|street address|^address$|^street",
+"a": "{{street_address}}",
+"req_only": true
+},
+{
+"q": "^city|town",
+"a": "{{city}}"
+},
+{
+"q": "^(province|state|region)|province or territory",
+"a": [
+"{{province}}",
+"{{province_code}}"
+]
+},
+{
+"q": "postal|zip",
+"a": "{{postal_code}}",
+"req_only": true
+},
+{
+"q": "country phone code|phone country",
+"a": [
+"Canada (+1)",
+"Canada"
+]
+},
+{
+"q": "phone (device )?type",
+"a": [
+"Mobile",
+"Cell",
+"Personal Primary",
+"Personal",
+"Home"
+]
+},
+{
+"q": "^type$",
+"a": [
+"Mobile",
+"Cell",
+"Home",
+"Primary"
+]
+},
+{
+"q": "^number$",
+"a": "{{phone}}"
+},
+{
+"q": "password",
+"a": "(site password from credentials.env)",
+"force": true
+},
+{
+"q": "^e-?mail( address)?$|^email address|^your email",
+"a": "{{job_email}}"
+},
+{
+"q": "phone number|^phone$|mobile number",
+"a": "{{phone}}",
+"force": true
+},
+{
+"q": "^country",
+"a": "Canada"
+},
+{
+"q": "source email|referr(er|al)'?s? email|email of (the )?(person|employee)",
+"a": "",
+"force": true
+},
+{
+"q": "how did you hear|^source",
+"a": [
+"LinkedIn",
+"Social Network: Linkedin",
+"Social Network",
+"Social Media",
+"Job Board: Other",
+"Job Board",
+"Online Job Board",
+"Career Site",
+"Our Website",
+"Company Website",
+"Internet",
+"Other"
+]
+},
+{
+"q": "(may|can) we contact your (current|present|most recent)? ?employer|contact your (current|present) employer",
+"a": [
+"No"
+]
+},
+{
+"q": "(current|most recent).{0,30}(job )?title|most recent position",
+"a": "{{current_or_last_job_title}}"
+},
+{
+"q": "(current or most recent|current|most recent) employer|name of your (current|most recent)",
+"a": "{{current_or_last_employer}}"
+},
+{
+"q": "language preference|preferred language",
+"a": [
+"English"
+]
+},
+{
+"q": "contact preference|preferred (method of )?contact",
+"a": [
+"Email",
+"E-mail",
+"Phone"
+]
+},
+{
+"q": "linkedin",
+"a": "{{linkedin_url}}"
+},
+{
+"q": "meet the (minimum )?age|minimum age requirement|at least 18|18 years|age of majority|legal (working )?age|1[6-9] years or older|minimum of 1[6-9] years",
+"a": "Yes",
+"force": true,
+"note": "2026-11-13 JCI: moved above the eligibility rows. The age question says \"required work permit\" and the sponsorship question says \"eligible to work in the country\", so the wrong rows caught them first"
+},
+{
+"q": "(require|need|now or in the future).{0,60}(sponsor|visa|work permit)",
+"a": "{{needs_visa_sponsorship: Yes or No}}",
+"force": true,
+"note": "2026-11-13 JCI: moved above the eligibility rows. The age question says \"required work permit\" and the sponsorship question says \"eligible to work in the country\", so the wrong rows caught them first"
+},
+{
+"q": "(legally|eligible|authori[sz]ed|entitled|able|permitted).{0,40}work (for any employer )?in canada|canadian citizen or permanent resident|right to work in canada|canadian citizen, canadian permanent resident|work permit entitling you",
+"a": "{{allowed_to_work_in_Canada: Yes or No}}",
+"force": true,
+"note": "2026-11-13 JCI: a wrong draft value (18+ No, sponsorship Yes) was kept because the row was not forced"
+},
+{
+"q": "eligible to work in the country|(legally|eligible|authori[sz]ed|entitled).{0,30}to work in the country",
+"a": "{{allowed_to_work_in_Canada: Yes or No}}",
+"force": true,
+"note": "2026-11-13 JCI: a wrong draft value (18+ No, sponsorship Yes) was kept because the row was not forced"
+},
+{
+"q": "authori[sz]ed to work in the (u\\.?s|united states)",
+"a": "{{allowed_to_work_in_US: Yes or No}}"
+},
+{
+"q": "do you (currently )?(reside|live) in (?!.*(toronto|ontario|gta|canada))",
+"a": "No",
+"note": "setup: put your own city, province and country words in the lookahead"
+},
+{
+"q": "(hold|have) a valid social insurance|valid sin",
+"a": "{{has_valid_SIN: Yes or No}}"
+},
+{
+"q": "age category|age range|age group|how old",
+"a": [
+"18 years of age and over",
+"18 and over",
+"18+",
+"18 or older",
+"Over 18",
+"19+"
+]
+},
+{
+"q": "shift preference|preferred shift",
+"a": [
+"No",
+"No preference",
+"Any",
+"Flexible"
+]
+},
+{
+"q": "(available|willing|able|work|working).{0,40}(overnight|night shifts?|graveyard)",
+"a": [
+"{{overnight_shifts_ok: Yes or No}}"
+],
+"force": true
+},
+{
+"q": "(work|available|availability).{0,40}(holidays|weekends|evenings|nights|overtime|flexible|early mornings)|willing to work",
+"a": "Yes"
+},
+{
+"q": "languages (can|do) you speak|languages spoken|which languages",
+"a": "English"
+},
+{
+"q": "(what|which) (days|shifts|times)|days of the week are you available|shifts are you available",
+"a": "ALL"
+},
+{
+"q": "essential (duties|functions)|perform the (duties|job)",
+"a": "Yes"
+},
+{
+"q": "current associate|current team member|currently work (for|at)",
+"a": "No"
+},
+{
+"q": "^(are you|will you be) (available|able|willing)|minimum of \\d+ hours|^can you (work|commit)",
+"a": "Yes"
+},
+{
+"q": "hours per week|how many hours|number of hours",
+"a": [
+"32 - 40",
+"32-40",
+"30 - 40",
+"30-40",
+"Greater than 24",
+"More than",
+"40",
+"Full"
+]
+},
+{
+"q": "(sunday|monday|tuesday|wednesday|thursday|friday|saturday)$",
+"a": [
+"All Day",
+"Any Shift",
+"Anytime",
+"Open",
+"Available"
+]
+},
+{
+"q": "permanent availability|availability.{0,60}(permanent|temporary)",
+"a": [
+"Yes, it is permanent",
+"Permanent",
+"Yes"
+]
+},
+{
+"q": "reliable (transportation|transit)|means of transportation|commute",
+"a": "Yes"
+},
+{
+"q": "(prevent|preclude|stop|disqualify) you from (obtaining|getting|holding)",
+"a": "No",
+"note": "2026-11-13 DXC: 'any reason that would prevent you from obtaining a security clearance' must be No"
+},
+{
+"q": "(hold|have) an? (active|current|valid).{0,30}clearance|active or current.{0,30}clearance|currently hold.{0,30}clearance",
+"a": [
+"No",
+"None"
+]
+},
+{
+"q": "proficiency in the french|french language|(speak|fluent|proficient).{0,20}french|french.{0,20}(fluency|proficiency)",
+"a": [
+"None of the above apply.",
+"None of the above",
+"No"
+],
+"note": "2026-11-13 DXC: the generic proficiency row picked Native for French"
+},
+{
+"q": "security clearance|reliability (status|clearance)|background clearance",
+"a": "Yes"
+},
+{
+"q": "hybrid (model|work|schedule|arrangement)|open to (working )?(in )?(the )?office|in-office",
+"a": "Yes"
+},
+{
+"q": "personal relationship with anyone|know anyone (who works|at)|conflict of interest|relatives?.{0,40}(direct or indirect )?interests? in",
+"a": "No"
+},
+{
+"q": "earliest time you can (work|start)",
+"a": [
+"{{earliest_start_time, e.g. 8am}}"
+]
+},
+{
+"q": "latest time you can (work|stay)",
+"a": [
+"{{latest_end_time, e.g. 10pm}}"
+]
+},
+{
+"q": "hybrid environment|comfortable with (this|the|a) (hybrid|schedule|requirement)|days (required )?in (the )?office",
+"a": "Yes"
+},
+{
+"q": "list the days and hours|days and (hours|times) you are available|your availability",
+"a": "{{availability_in_one_line}}"
+},
+{
+"q": "how long can you commit|commit to this availability|how long (do|would) you (plan|intend) to stay",
+"a": [
+"More than 12 months",
+"12+ months",
+"Permanent",
+"12 months"
+]
+},
+{
+"q": "rate your commitment to (upholding|keeping).{0,30}confidential",
+"a": "10"
+},
+{
+"q": "trusted with confidential|handled confidential|confidential information",
+"a": "Yes"
+},
+{
+"q": "relocat",
+"a": "{{willing_to_relocate: Yes or No}}"
+},
+{
+"q": "non-?competition|preclude or restrict your employment|write n/a if not applicable",
+"a": "N/A",
+"force": true,
+"note": "2026-11-13 PwC: the acknowledgement row put Yes in this box"
+},
+{
+"q": "(requiring|require|need) support for a work permit|work permit or other immigration",
+"a": "{{needs_visa_sponsorship: Yes or No}}",
+"force": true
+},
+{
+"q": "willing to (complete|undergo|consent|submit).{0,30}(check|screening)|background (security )?check",
+"a": "Yes",
+"force": true,
+"note": "forced 2026-11-13 Interac: a draft kept the old No; 2026-11-13 BDO: 'willing to complete a background check, including criminal record' matched the convicted row and got No"
+},
+{
+"q": "convicted|criminal (offen[cs]e|record|charge)|pardon",
+"a": "{{criminal_record_needing_disclosure: Yes or No}}"
+},
+{
+"q": "background check|reference check|criminal (background|record) check|credit check|consent to .*check",
+"a": "Yes"
+},
+{
+"q": "non.?compete|non.?solicit|restrictive covenant",
+"a": "No"
+},
+{
+"q": "(relative|family member|related to (anyone|someone|any (current )?employee)|spouse).{0,60}(employ|work)",
+"a": "No"
+},
+{
+"q": "politically exposed|government official|public official",
+"a": "No"
+},
+{
+"q": "\\breferred|referral",
+"a": "No"
+},
+{
+"q": "are you an? .{0,40}employee[?]?$|currently employed (by|at)|current employee of|are you an? (current )?employee",
+"a": "No"
+},
+{
+"q": "have you (ever )?(previously )?worked (for|at|with)|previously (applied|worked|been employed)|former employee|worked for .{0,80} before|ever (been )?(employed|worked)|worked at .{0,80} before|contractor .{0,40} before|worked (for|at|with) us",
+"a": "No"
+},
+{
+"q": "(fluent|proficient|speak|communicate).{0,30}english",
+"a": [
+"Yes",
+"Full professional proficiency",
+"Fluent",
+"Native"
+]
+},
+{
+"q": "^language$|^language\\*?$",
+"a": "English"
+},
+{
+"q": "fluent in this language|native (language|speaker)",
+"a": "yes"
+},
+{
+"q": "gpa|overall result|grade average",
+"a": "",
+"force": true
+},
+{
+"q": "^(oral|reading|speaking|writing|written|comprehension|overall$)|reading / speaking / writing|proficiency",
+"a": [
+"5 - Fluent",
+"Fluent",
+"Native",
+"Expert",
+"Advanced"
+]
+},
+{
+"q": "french|bilingual",
+"a": "No"
+},
+{
+"q": "highest (level of )?education|education level|level of education",
+"a": [
+"{{education_level, e.g. Bachelor's Degree}}"
+]
+},
+{
+"q": "school or university|^school|institution",
+"a": [
+"{{school_name}}"
+]
+},
+{
+"q": "^degree",
+"a": [
+"{{degree_name}}",
+"Bachelor's Degree",
+"Bachelor"
+],
+"force": true,
+"note": "2026-11-13 Citi: Workday's parser had put B.A., which is wrong (BIT); no generic Bachelor option at Citi (B.A., B.S., BSc only): B.S. is the closest for a technical degree (Judgment call)"
+},
+{
+"q": "field of study|major|discipline",
+"a": [
+"{{field_of_study}}"
+]
+},
+{
+"q": "start date|available to (start|begin)|begin employment|availability to start|notice period|when can you (start|begin)|earliest .*start|date (you are )?available",
+"a": [
+"Immediately",
+"2 weeks",
+"Less than 2 weeks",
+"Within 2 weeks",
+"1-2 weeks"
+]
+},
+{
+"q": "identify as a woman|are you a woman",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not",
+"No"
+]
+},
+{
+"q": "(have you|were you) (ever )?(been )?interviewed (by|with|at)",
+"a": [
+"No"
+]
+},
+{
+"q": "gender",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not"
+]
+},
+{
+"q": "sexual orientation|lgbt|transgender|two.?spirit",
+"a": [
+"I do not wish",
+"Prefer not",
+"Decline",
+"I don't wish",
+"Do not wish"
+]
+},
+{
+"q": "hispanic|latino",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not",
+"No"
+]
+},
+{
+"q": "are you a member of an underrepresented group|member of a visible minority group\\?",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not",
+"No"
+]
+},
+{
+"q": "ethnic|\\brace\\b|racial",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not"
+]
+},
+{
+"q": "which visible minority|minority group (best )?describes|which (racial|ethnic) group",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not"
+]
+},
+{
+"q": "visible minority|racialized|racialised",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not",
+"No"
+]
+},
+{
+"q": "(indigenous|aboriginal).{0,60}(details|specify|which)",
+"a": "",
+"force": true
+},
+{
+"q": "indigenous|aboriginal|first nations",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not",
+"No"
+]
+},
+{
+"q": "veteran|military|armed forces",
+"a": [
+"I am not a protected veteran",
+"I am not a veteran",
+"Not a veteran",
+"I am not",
+"No"
+]
+},
+{
+"q": "disab",
+"a": [
+"Prefer not",
+"I do not wish",
+"I don't wish",
+"Decline",
+"Do not wish",
+"I prefer not"
+]
+},
+{
+"q": "^date$|today'?s date|^date signed",
+"a": "today"
+},
+{
+"q": "terms and conditions|i (have read|understand|acknowledge|agree|certify|attest|consent)|acknowledg|attest|certif|agreement|privacy (policy|notice|statement)|consent",
+"a": [
+"Yes",
+"I agree",
+"Agree",
+"I acknowledge",
+"Acknowledge",
+"I understand",
+"I accept",
+"Accept",
+"I consent"
+]
+}
+]

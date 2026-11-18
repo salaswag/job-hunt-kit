@@ -1,0 +1,12 @@
+# Your personal files: made by the setup, never pushed
+config/kit.json
+APPLICANT_PROFILE.md
+EXPERIENCE_BANK.md
+APPLICATIONS/*
+!APPLICATIONS/.gitkeep
+*_Resume*.pdf
+*_Cover_Letter*.pdf
+TEMPLATES/*.pdf
+.claude/settings.local.json
+__pycache__/
+*.pyc

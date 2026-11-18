@@ -1,0 +1,15 @@
+{
+  "model": "opus",
+  "effortLevel": "medium",
+  "permissions": {
+    "allow": [
+      "Bash(python TOOLS/*)",
+      "Bash(python -u TOOLS/*)",
+      "Bash(node TOOLS/*)",
+      "Bash(MSYS_NO_PATHCONV=1 node TOOLS/*)",
+      "Read(**)",
+      "Edit(APPLICATIONS/**)",
+      "Write(APPLICATIONS/**)"
+    ]
+  }
+}

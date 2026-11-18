@@ -1,0 +1,17 @@
+{
+ "text": {
+  "First Name": "{{first_name}}",
+  "Last Name": "{{last_name}}",
+  "Email": "{{job_email}}",
+  "Phone": "{{phone}}",
+  "LinkedIn Profile": "{{linkedin_url}}"
+ },
+ "select": {
+  "Pronouns": "I prefer not to say",
+  "Do you now, or will you in the future, require immigration sponsorship": "No",
+  "Which U.S. State or Canadian Province": "Ontario",
+  "Have you previously been employed at Affirm": "I have not previously been employed at Affirm"
+ },
+ "country": "Canada",
+ "resume": "APPLICATIONS/<job folder>/<Name>_Resume_<Company_Title>.pdf"
+}

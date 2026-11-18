@@ -1,0 +1,75 @@
+% Resume template (Jake's Resume look, XeLaTeX with Latin Modern, common ligatures off so ATS text extraction is clean).
+% Build per job with: python TOOLS/build_doc.py <job folder> resume <Company_Exact_Title>
+%   (it takes everything between begin{document} and end{document} from the job folder's RESUME_BODY.tex)
+% The setup writes YOUR body below from EXPERIENCE_BANK.md. Rules for every tailored copy (CLAUDE.md, Tailoring rules):
+%   one page, filled to the bottom; Google XYZ bullets (did X, measured by Y, by doing Z) with real numbers;
+%   mirror the posting's words; never invent an employer, title, date, degree or certification; no em or en dashes.
+\documentclass[letterpaper,11pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{fontspec}
+% Real Unicode font so ATS text extraction is clean; common ligatures off so "fi" never breaks a keyword.
+\setmainfont{lmroman10}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic,
+  BoldItalicFont=*-bolditalic, SmallCapsFont=lmromancaps10-regular, Ligatures=NoCommon]
+\pagestyle{empty}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.55in}
+\addtolength{\textheight}{1.1in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\titleformat{\section}{\vspace{-2pt}\scshape\raggedright\large}{}{0em}{}[\titlerule\vspace{-3pt}]
+\newcommand{\resumeItem}[1]{\item\small{#1\vspace{-2pt}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}}
+\newcommand{\resumeProjectHeading}[2]{\item\small{#1}\vspace{-4pt}}
+\setlist[itemize]{label=\textbullet, topsep=1pt, itemsep=0pt}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{1pt}}
+
+\begin{document}
+
+\begin{center}
+  {\Huge \bfseries First Last} \ \vspace{3pt}
+  {\large Target Job Title} \ \vspace{2pt}
+  \small City, ON $|$ \href{mailto:you.jobs@gmail.com}{you.jobs@gmail.com} $|$ +1 416-555-0100 $|$
+  \href{https://www.linkedin.com/in/your-handle/}{linkedin.com/in/your-handle}
+\end{center}
+
+\section{Summary}
+\small{Two lines that say who you are for THIS job, in the posting's own words, with one proof point.}
+
+\section{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading{Job Title}{Mon YYYY - Present}{Company}{City, ON}
+  \resumeItemListStart
+    \resumeItem{Did X, measured by \textbf{Y}, by doing Z.}
+    \resumeItem{Did X, measured by \textbf{Y}, by doing Z.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading{School}{City, ON}{Degree, Field}{Mon YYYY}
+\resumeSubHeadingListEnd
+
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Group one}{: skill, skill, skill} \
+    \textbf{Group two}{: skill, skill, skill}
+  }}
+\end{itemize}
+
+\end{document}
