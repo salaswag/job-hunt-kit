@@ -10,7 +10,7 @@ Check, then install what is missing (Windows 11; use `winget` with `--accept-pac
 - Python packages: `python -m pip install requests beautifulsoup4 pypdf pymupdf patchright scrapling`, then `scrapling install` (the headless browser the board sweep falls back to).
 - Tectonic (builds the resume PDFs): download the Windows x86_64 zip from the latest release at https://github.com/tectonic-typesetting/tectonic/releases and put `tectonic.exe` in `%LOCALAPPDATA%\Programs\tectonic\`. Test: build `TEMPLATES/resume.tex` once.
 - The Claude Code command line (the scheduled runs need it, even if they chat in the desktop app): `irm https://claude.ai/install.ps1 | iex` in PowerShell. Then ask the user to open PowerShell, run `claude` once, sign in with the same Claude account, and type `/exit`.
-- Optional, more job sources: career-ops (MIT, https://github.com/career-ops-hq/career-ops; the kit was tested with v1.38.0). Only if the user wants it: `git clone --branch v1.38.0 --depth 1` it to `%USERPROFILE%\.job_hunt\career-ops` (if that tag is missing, clone and check out the v1.38.0 commit), `npm install`, and write its `portals.yml` from step 3's answers. Set config/kit.json `schedule.career_ops_time` (for example "07:30").
+- Optional, more job sources: career-ops (MIT, https://github.com/career-ops-hq/career-ops; the kit was tested with v1.38.0). Only if the user wants it: `git clone --branch career-ops-v1.38.0 --depth 1 https://github.com/career-ops-hq/career-ops.git "$env:USERPROFILE\.job_hunt\career-ops"`, `npm install`, and write its `portals.yml` from step 3's answers. Set config/kit.json `schedule.career_ops_time` (for example "07:30").
 Verify: `python --version`, `node --version`, `git --version`, tectonic builds the template.
 
 ## 2. The job Chrome
